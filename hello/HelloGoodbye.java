@@ -1,14 +1,23 @@
 public class HelloGoodbye {
-    public static void main(String[] args){
-        if (args.length < 2) {
-            System.out.println("please provide two names as command-line arguments.");
-            return;
-        }
-        
-        String name1 = args[0];
-        String name2 = args[1];
+    public HelloGoodbye() {
+    }
 
-        System.out.println("Hello " + name1 + " and " + ".");
-        System.out.println("Goodbye " + name2 + " and " + name1 + ".");
+    public static void main(String[] var0) {
+        try {
+            checkArgsLength(var0);
+
+            String var1 = var0[0];
+            String var2 = var0[1];
+            System.out.println("Hello " + var1 + " and .");
+            System.out.println("Goodbye " + var2 + " and " + var1 + ".");
+        } catch (Exception e) {
+            System.out.println("Please provide two names as command-line arguments.");
+        }
+    }
+
+    private static void checkArgsLength(String[] var0) throws Exception {
+        if (var0.length < 2) {
+            throw new Exception("Insufficient arguments");
+        }
     }
 }
